@@ -24,7 +24,7 @@ export default function LoginHeader() {
 
 
 		try {
-			const response = await fetch(`${process.env.API_URL}:8000/api/logout`, {
+			const response = await fetch(`${process.env.API_URL}/api/logout`, {
 			  method: 'POST',
 			  headers: {
 				'Content-Type': 'application/json',
