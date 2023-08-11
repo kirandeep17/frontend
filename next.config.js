@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
-
-module.exports = nextConfig
+module.exports = {
+  env: {
+    API_URL: 'http://3.136.223.172:8000', // Your API URL
+    // Add other constant variables here
+  },
+};

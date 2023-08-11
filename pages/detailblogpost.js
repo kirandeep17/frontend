@@ -186,7 +186,7 @@ export async function getServerSideProps(context) {
     const id = context.query.id;
     //console.log("helllooooooooooooooooo "+id );
 
-	const response = await fetch('http://127.0.0.1:8000/api/article/'+id, {
+	const response = await fetch(`${process.env.API_URL}/api/article/`+id, {
 		method: 'GET',
 		headers: {
 		  'Content-Type': 'application/json',

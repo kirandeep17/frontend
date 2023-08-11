@@ -53,7 +53,7 @@ export default function  ThreeDEffectContainer  ()  {
     }, []);
 
     const fetchCategories = () => {
-        fetch('http://127.0.0.1:8000/api/categorylist')  
+        fetch(`${process.env.API_URL}/api/categorylist`)  
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Error fetching categories:', error));
@@ -106,7 +106,7 @@ export default function  ThreeDEffectContainer  ()  {
       category:selectedCategory
     };
 
-    fetch('http://127.0.0.1:8000/api/blogPost', {
+    fetch(`${process.env.API_URL}/api/blogPost`, {
       method: 'POST',
       body: JSON.stringify(requestObj),
       headers: {

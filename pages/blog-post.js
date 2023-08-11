@@ -49,7 +49,7 @@ export default function blognew( {username,email,loggedIn,bloglist} ) {
 
 
 		try {
-			const response = await fetch('http://127.0.0.1:8000/api/logout', {
+			const response = await fetch(`${process.env.API_URL}/api/logout`, {
 			  method: 'POST',
 			  headers: {
 				'Content-Type': 'application/json',
@@ -337,7 +337,7 @@ export async function getServerSideProps(context) {
 	  let loggedIn;
 
 	  try {
-		const response = await fetch('http://127.0.0.1:8000/api/blogPostlist', {
+		const response = await fetch(`${process.env.API_URL}/api/blogPostlist`, {
 		  method: 'GET',
 		  headers: {
 			'Content-Type': 'application/json',

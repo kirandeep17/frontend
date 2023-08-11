@@ -39,7 +39,7 @@ const Posts = ({ posts }) => {
   export async function getServerSideProps() {
     try {
       // Make the API request
-    const response = await fetch('http://127.0.0.1:8000/api/article/3');
+    const response = await fetch(`${process.env.API_URL}/api/article/3`);
     const posts = await response.json();
 
     return {

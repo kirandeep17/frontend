@@ -53,7 +53,7 @@ export default function searchblog( {searchParamQuery} ) {
 
         }
         
-        const response = await fetch(`http://127.0.0.1:8000/api/searchblog?search=${searchParam}`);
+        const response = await fetch(`${process.env.API_URL}/api/searchblog?search=${searchParam}`);
         const data = await response.json();
         console.log(data)
         setSearchResult(data);
@@ -67,7 +67,7 @@ export default function searchblog( {searchParamQuery} ) {
 
 
 		try {
-			const response = await fetch('http://127.0.0.1:8000/api/logout', {
+			const response = await fetch(`${process.env.API_URL}/api/logout`, {
 			  method: 'POST',
 			  headers: {
 				'Content-Type': 'application/json',

@@ -26,7 +26,7 @@ export default function Loginnew( {username} ) {
         e.preventDefault();
         // Send the email and password data to the Django backend
         try {
-          const response = await fetch('http://127.0.0.1:8000/api/login', {
+          const response = await fetch(`${process.env.API_URL}/api/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export default function Loginnew( {username} ) {
           document.cookie = `jwt=${username}`;
 
           console.log(document.cookie)
-          const res = await axios.get("http://127.0.0.1:8000/api/user", {
+          const res = await axios.get(`${process.env.API_URL}/api/user`, {
             withCredentials: true,
             headers: {
               'Content-Type': 'application/json',

@@ -49,7 +49,7 @@ export default function mypostedblogs( {username,email,loggedIn,bloglist} ) {
 
 
 		try {
-			const response = await fetch('http://127.0.0.1:8000/api/logout', {
+			const response = await fetch(`${process.env.API_URL}/api/logout`, {
 			  method: 'POST',
 			  headers: {
 				'Content-Type': 'application/json',
@@ -338,7 +338,7 @@ export async function getServerSideProps(context) {
       const userid    =    cookies['id'] ;
 
 	  try {
-		const response = await fetch(`http://127.0.0.1:8000/api/blogPostlist/${userid}`, {
+		const response = await fetch(`${process.env.API_URL}/api/blogPostlist/${userid}`, {
 		  method: 'GET',
 		  headers: {
 			'Content-Type': 'application/json',

@@ -54,7 +54,7 @@ export default function  ThreeDEffectContainer  ({userData,id})  {
     }, []);
 
     const fetchCategories = () => {
-        fetch('http://127.0.0.1:8000/api/categorylist')  
+        fetch(`${process.env.API_URL}/api/categorylist`)  
             .then(response => response.json())
             .then(data => setCategories(data))
             .catch(error => console.error('Error fetching categories:', error));
@@ -108,7 +108,7 @@ export default function  ThreeDEffectContainer  ({userData,id})  {
       id:userid
     };
 
-    fetch('http://127.0.0.1:8000/api/blogPostUpdate', {
+    fetch(`${process.env.API_URL}/api/blogPostUpdate`, {
       method: 'PATCH',
       body: JSON.stringify(requestObj),
       headers: {
@@ -200,7 +200,7 @@ export async function getServerSideProps(context) {
     const id = context.query.id;
     //console.log("helllooooooooooooooooo "+id );
 
-	const response = await fetch('http://127.0.0.1:8000/api/article/'+id, {
+	const response = await fetch(`${process.env.API_URL}/api/article/`+id, {
 		method: 'GET',
 		headers: {
 		  'Content-Type': 'application/json',

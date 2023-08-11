@@ -42,7 +42,7 @@ export default function myprofile( {username,email,loggedIn,userData} ) {
         
     
         try {
-          const response = await fetch('http://127.0.0.1:8000/api/users/'+id, {
+          const response = await fetch(`${process.env.API_URL}/api/users/`+id, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ export default function myprofile( {username,email,loggedIn,userData} ) {
 
 
 		try {
-			const response = await fetch('http://127.0.0.1:8000/api/logout', {
+			const response = await fetch(`${process.env.API_URL}/api/logout`, {
 			  method: 'POST',
 			  headers: {
 				'Content-Type': 'application/json',
@@ -277,7 +277,7 @@ export async function getServerSideProps(context) {
       
 
           //console.log("here is "+document.cookie)
-       const response = await fetch('http://127.0.0.1:8000/api/userprofile', {
+       const response = await fetch(`${process.env.API_URL}/api/userprofile`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
