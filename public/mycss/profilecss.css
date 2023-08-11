@@ -1,0 +1,74 @@
+
+
+  .kcontent {
+    padding: 20px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    border-radius: 10px;
+    background: linear-gradient(45deg, #007bff, #00bfa5);
+    
+  }
+  h1, p {
+    margin: 0;
+  }
+  h1 {
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  p {
+    font-size: 16px;
+  }
+  
+  .form-container {
+    position: relative;
+    z-index: 2;
+  }
+  form {
+    padding: 10%;
+  background-color: #ffffff;
+  border-radius: 10px;
+ 
+  }
+  label {
+      display: block;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #474783;
+  }
+  input[type="text"],
+  select
+   {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+.mydiv {
+
+    height: 200px;
+}
+
+.quill {
+  color: rgb(0, 0, 0);
+  background-color: white;
+  
+}
+
+.button {
+  color: #fff;
+    background: #009579;
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 1.7rem;
+    cursor: pointer;
+    transition: 0.4s;
+    width: 30%;
+    height: 20%;
+}
