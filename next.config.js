@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   env: {
-    API_URL: 'http://3.136.223.172:8000', // Your API URL
+    API_URL: 'http://13.58.97.126:8000', // Your API URL
     // Add other constant variables here
   },
 };
