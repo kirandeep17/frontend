@@ -23,10 +23,10 @@ export default function Navbar2() {
 										<a aria-expanded="false" aria-haspopup="true" href="/blog-post" role="button" className="dropdown-toggle" title="Home">Home</a>
 									</li>
 									<li className="dropdown active">
-										<a aria-expanded="false" aria-haspopup="true" href="/about" role="button" className="dropdown-toggle" title="About">About</a>
+										<a aria-expanded="false" aria-haspopup="true" href="/aboutin" role="button" className="dropdown-toggle" title="About">About</a>
 									</li>
 									<li className="dropdown active">
-										<a aria-expanded="false" aria-haspopup="true" href="/team" role="button" className="dropdown-toggle" title="Team">Team</a>
+										<a aria-expanded="false" aria-haspopup="true" href="/teamin" role="button" className="dropdown-toggle" title="Team">Team</a>
 									</li>
 									<li className="dropdown active">
 										<a aria-expanded="false" aria-haspopup="true" href="/writepost" role="button" className="dropdown-toggle" title="Write">Write</a>
@@ -35,7 +35,7 @@ export default function Navbar2() {
 										<a aria-expanded="false" aria-haspopup="true" href="/mypostedblogs" role="button" className="dropdown-toggle" title="Write">My Blogs</a>
 									</li>
 									<li className="dropdown active">
-										<a aria-expanded="false" aria-haspopup="true" href="/contactUS" role="button" className="dropdown-toggle" title="Contact">Contact</a>
+										<a aria-expanded="false" aria-haspopup="true" href="/contactUSin" role="button" className="dropdown-toggle" title="Contact">Contact</a>
 									</li>
 								</ul>
 							</div>

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router'
 import Head from 'next/head';
 import HomeLayout from '../components/Layout/HomeLayout';
+import Dialogbox from '../components/dialogbox'; // Adjust the path as needed
+import { useState } from 'react';
 
 export default function detailblogpost( {userData} ) {
     const router = useRouter()
@@ -15,10 +17,45 @@ export default function detailblogpost( {userData} ) {
 			speechSynthesis.speak(utterance);
 	}
 
+	function  stop() {
+		
+			speechSynthesis.cancel();
+	}
+
+
+
+
+	const [showConfirmation, setShowConfirmation] = useState(false);
+
+	const handleDelete = () => {
+		// Delete logic here
+		// Call an API endpoint or perform the delete action
+
+		// After successful deletion, hide the confirmation dialog
+		setShowConfirmation(false);
+	};
+
+	const handleCancel = () => {
+		setShowConfirmation(false);
+	};
+
+
     return (
+
+		
         <div>
             
 	<div class="container blog blogpost">
+	{showConfirmation && (
+
+		<Dialogbox
+				
+		onCancel={handleCancel}
+		onDelete={handleDelete}
+		/>
+	)}
+	
+
 		<div class="section-padding"></div>
 		<div class="row">
 			<div class="col-md-9 col-sm-8 content-area">
@@ -36,7 +73,8 @@ export default function detailblogpost( {userData} ) {
 							<div class="entry-block">
 								<div class="entry-title">
 									<h3>{userData.title}</h3>
-									<input type='button' className="textspeachButton" onClick={speak} value="Read text"/>
+									<input type='button' className="textspeachButton" onClick={speak} value="Read"/>
+									<input type='button' className="textspeachButton" onClick={stop} value="Stop"/>
 								</div>
 								<div class="entry-content">
 								<div dangerouslySetInnerHTML={{ __html: userData.content }}>
@@ -47,6 +85,10 @@ export default function detailblogpost( {userData} ) {
 								<div></div>	
 								</div>
 							</div>
+							<div class="form-group col-md-12">
+							<button className="delete-button" onClick={() => setShowConfirmation(true)}>Delete</button>
+							</div>
+							
 							<ul>
 								<li><a title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
@@ -169,6 +211,11 @@ export default function detailblogpost( {userData} ) {
 			</div>
 		</div>
 		<div class="section-padding"></div>
+		
+
+		
+
+		
 
 		
 

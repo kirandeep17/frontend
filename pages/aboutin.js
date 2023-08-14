@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HomeLayout from '../components/Layout/HomeLayout';
 
 const AboutPage = () => {
   return (
@@ -52,3 +53,6 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+AboutPage.getLayout = function(page) {
+    return <HomeLayout>{page}</HomeLayout>;
+  };

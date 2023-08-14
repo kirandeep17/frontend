@@ -6,10 +6,12 @@ import { useEffect } from 'react';
 import HomeLayout from '../components/Layout/HomeLayout';
 import Router from 'next/router'
 import { useState } from 'react';
-export default function blognew( {username,email,loggedIn,bloglist} ) {
+export default function blognew( {username,email,loggedIn,bloglist,blogcatlist} ) {
 	const [search, setSearch] = useState('');
     let [searchResult,setSearchResult]= useState('');
 	searchResult =bloglist;
+	let [blogcatResult,setBlogcatResult]= useState('');
+	blogcatResult =blogcatlist;
 
 	
 	//setSearch("")
@@ -151,15 +153,15 @@ export default function blognew( {username,email,loggedIn,bloglist} ) {
 											<div className="entry-contentblock">
 												<div className="entry-meta">
 													<span className="postby">By : <a href="#" title="Andreanne Turcotte"> {blog.myauthor}</a></span>
-													<span className="postcatgory">Category : <a href="#" title="News Posted"> {blog.category}</a></span>
-													<span className="postdate">Date : <a href="#" title="date posted"> {blog.created_at}</a></span>
+													
+													<span className="postdate">Date : <a href="#" title="date posted"> {blog.created_at.slice(0, 10)}</a></span>
 												</div>
 												<div className="entry-block">
 													<div className="entry-title">
 														<a title="blog Title" href="#"><h3>{blog.title}</h3></a>
 													</div>
 													<div className="entry-content">
-														<div dangerouslySetInnerHTML={{ __html: blog.content }}/>
+														<div id="para" dangerouslySetInnerHTML={{ __html: blog.content }}/>
 													</div>
 												</div>
 												<a href={`/detailblogpost?id=${blog.id}`} title="Read More">Read More</a>
@@ -196,7 +198,25 @@ export default function blognew( {username,email,loggedIn,bloglist} ) {
 			<div className="col-md-3 col-sm-4 widget-area">
 				<aside className="widget widget_categories">
 					<h3 className="widget-title">Categories</h3>
+					
+					
 					<ul>
+					{blogcatResult && blogcatResult.map((cate)=>{
+
+						return(
+							
+								<li><a title="kdk" href={`/searchblog?search=${encodeURIComponent(cate.name)}`}>{cate.name}</a><span>(*)</span></li>
+							
+
+						)
+							
+							
+							}
+							)
+							}
+					
+						
+					
 						<li><a title="Language Science" href="#">Language Science</a><span>(10)</span></li>
 						<li><a title="Student Guidance" href="#">Student Guidance</a><span>(12)</span></li>
 						<li><a title="School Psychology" href="#">School Psychology</a><span>(08)</span></li>
@@ -222,9 +242,9 @@ export default function blognew( {username,email,loggedIn,bloglist} ) {
 				</aside>
 				<aside className="widget courses-staff">
 					<img src="images/staff.jpg" alt="staff" width="275" height="288"/>
-					<h3>Charlie Brown</h3>
-					<span>Web Designer</span>
-					<p>My name is Ruth. I grew up and studied in...</p>
+					<h3>{username}</h3>
+					<span>Learner</span>
+					<p>My name is {username}. I grew up and studied in Learning new Tech</p>
 				</aside>
 			</div>
 		</div>
@@ -344,11 +364,34 @@ export async function getServerSideProps(context) {
 		  },
 		  withCredentials:true
 		});
+
+
+	
+
+		const response2 = await fetch(`${process.env.API_URL}/api/categorylist`, {
+			method: 'GET',
+			headers: {
+			  'Content-Type': 'application/json',
+			},
+			withCredentials:true
+		  });
+
+		 
+
+		
 		
 		if (response.ok) {
 		  // Login successful, redirect to a dashboard or home page
 		  console.log('SUCCESSFUL Fetch');
 		  const bloglist = await response.json()
+
+		
+			console.log('SUCCESSFUL Fetch category');
+			const blogcatlist = await response2.json()
+
+			console.log(blogcatlist)
+		
+		  
 
 		  if(username != undefined){
 			loggedIn = true 
@@ -366,7 +409,8 @@ export async function getServerSideProps(context) {
 				username,
 				email,
 				loggedIn,
-				bloglist
+				bloglist,
+				blogcatlist
 			},
 		  };
 		  

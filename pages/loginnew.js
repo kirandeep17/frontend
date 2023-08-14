@@ -82,6 +82,7 @@ export default function Loginnew( {username} ) {
             document.cookie='username='+res.data.username
             document.cookie='email='+res.data.email
             document.cookie='id='+res.data.id
+            document.cookie='userInfo='+res.data
            // alert(getCookieByName(username))
             Router.push('/blog-post')
            

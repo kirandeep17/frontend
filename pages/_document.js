@@ -30,7 +30,7 @@ class MyDocument extends Document {
             <meta name="description" content=""/>
             <meta name="keywords" content=""/>
             <meta name="author" content=""/>
-            <title>3333333Home -Knowledge</title>
+            <title>How It Works</title>
 
             <link rel="icon" type="image/x-icon" href="images//favicon.ico"/>
 

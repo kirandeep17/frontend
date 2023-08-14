@@ -59,7 +59,7 @@ export default function LoginHeader() {
 			<div className="container">
 				<div className="topheader-left">
 					<a href="tel:+5198759822" title="5198759822"><i className="fa fa-mobile" aria-hidden="true"></i>(519) - 875 - 9822 </a>
-					<a href="mailto:Support@info.com" title="Support@info.com"><i className="fa fa-envelope-o" aria-hidden="true"></i>Emailus: Support@info.com</a>
+					<a href="mailto:Support@info.com" title="Support@howitworks.com"><i className="fa fa-envelope-o" aria-hidden="true"></i>Emailus: Support@howitworks.com</a>
 				</div>
 				<div className="topheader-right">
 					<a href="/myprofilenew" title="Profile"><i className="fa fa-sign-out" aria-hidden="true"></i>Profile</a>

@@ -159,12 +159,12 @@ export default function mypostedblogs( {username,email,loggedIn,bloglist} ) {
 														<a title="blog Title" href="#"><h3>{blog.title}</h3></a>
 													</div>
 													<div className="entry-content">
-														<div dangerouslySetInnerHTML={{ __html: blog.content }}/>
+														<div id="para" dangerouslySetInnerHTML={{ __html: blog.content }}/>
 													</div>
 												</div>
 												<a href={`/detailblogpost?id=${blog.id}`} title="Read More">Read More</a>
 											</div>
-											<div className="post-ic"><span className="icon icon-Pencil"></span></div>
+											<div className="post-ic"><a href={`/editblog?id=${encodeURIComponent(blog.id)}`}><span className="icon icon-Pencil"></span></a></div>
 										</div>
 										</article>
 										

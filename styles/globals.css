@@ -119,3 +119,58 @@ a {
 .mycolor {
   background-color: white;
 }
+
+/* DeleteConfirmationDialog.css */
+
+.confirmation-dialog {
+  background-color:black;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  margin: 0 auto;
+
+  position: fixed;
+  top: 40%;
+  left: 30%;
+  z-index: 1000; /* Adjust this value as needed */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.delete-button,
+.cancel-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+  margin: 5px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .confirmation-dialog {
+    width: 90%;
+  }
+}
+#para{
+  overflow: hidden;
+         text-overflow: ellipsis;
+         display: -webkit-box;
+         line-height: 20px;
+         max-height: 20%;
+         padding: 4px 10px;
+         max-width: 100%;
+         -webkit-line-clamp: 3;
+         -webkit-box-orient: vertical;
+}

@@ -24,7 +24,7 @@ export default function myprofile( {username,email,loggedIn,userData} ) {
         email: email,
         education: null,
         country: null,
-        aboutMe: null,
+        about_me: userData.about_me,
       });
 
       const handleChange = (e) => {
@@ -218,7 +218,7 @@ export default function myprofile( {username,email,loggedIn,userData} ) {
                     <div className="col-md-6"><label className="labels">Country</label><input type="text" className="form-control"  name="country" value={userData.country} placeholder="country" onChange={handleChange}  /></div>
                     <div className="col-md-6">
 					<label className="labels">State/Region</label>
-					<input type="text" className="form-control"  value={userData.state} onChange={handleChange}  placeholder="state" />
+					<input type="text" className="form-control"  value={formData.state} onChange={handleChange}  placeholder="state" />
 					</div>
 					
                 </div>
@@ -238,8 +238,8 @@ export default function myprofile( {username,email,loggedIn,userData} ) {
 				  </div>
 				  <div className="col-md-12">
 				<div className="col-md-12"><label className="labels">About MySelf</label>
-				<textarea className='textarea' name="w3review" rows="10" cols="35">
-				 Please Write About yourself
+				<textarea className='textarea' placeholder="Please Write About yourself" name="about_me" value={formData.about_me} onChange={handleChange} rows="10" cols="35">
+				 
 				</textarea>
 				</div>
 				</div>
